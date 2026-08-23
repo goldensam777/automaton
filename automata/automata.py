@@ -1,7 +1,10 @@
 from abc import ABC, abstractmethod
 from functools import wraps
 
-from model import Model
+try:
+    from .model import Model
+except ImportError:
+    from model import Model
 
 
 def learn(function):
@@ -42,10 +45,10 @@ class Automata(ABC):
         self.__functionalities[function_name] = function
         print(f"[Automata] Functionality '{function_name}' added to {self.__name}")
 
-    def execute_functionality(self, function_name: str, *args):
+    def execute_functionality(self, function_name: str, *args, **kwargs):
         """Exécute une fonctionnalité enregistrée."""
         if function_name in self.__functionalities:
-            return self.__functionalities[function_name](*args)
+            return self.__functionalities[function_name](*args, **kwargs)
         else:
             raise ValueError(f"Functionality '{function_name}' not found.")
 
