@@ -126,14 +126,6 @@ Execute the included end-to-end flight controller demonstration:
 
    python3 main.py
 
-Research Roadmap
-================
-
-* [ ] **Formal State Machine Engine**: Implement explicit hierarchical states (FSM/HSM) and transition guards.
-* [ ] **Learning Hook Enhancements**: Extend the ``@learn`` decorator with runtime latency profiling, memory tracking, and online parameter adaptation.
-* [ ] **Hardware-in-the-Loop (HIL) Integration**: Bindings for C/C++ embedded targets and ROS 2 nodes.
-* [ ] **Formal Verification**: Safety invariant verification between state transitions.
-
 License
 =======
 
