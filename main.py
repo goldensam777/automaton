@@ -3,6 +3,13 @@ Main entry point and demonstration of the Automaton library.
 Use case: Autonomous Edge-AI Drone Controller (Perception -> Decision -> Action loop).
 """
 
+#  _                                      _       _         
+# | | ___ _   _ _ __ ___   __ _ ___      | | __ _| |__  ___ 
+# | |/ _ \ | | | '_ ` _ \ / _` / __|_____| |/ _` | '_ \/ __|
+# | |  __/ |_| | | | | | | (_| \__ \_____| | (_| | |_) \__ \
+# |_|\___|\__,_|_| |_| |_|\__,_|___/     |_|\__,_|_.__/|___/
+
+
 from automata import Automata, Model, ModelConfig, learn
 
 
@@ -103,7 +110,7 @@ def main():
 
     for step, sensor_data in enumerate(sensor_telemetry_stream, start=1):
         print(f"[Tick {step}] Sensor Input ({sensor_data['desc']}): distance={sensor_data['distance_m']}m, flow={sensor_data['flow_div']}")
-        
+
         # Step A: Perception (Inference via Model)
         inference = drone.model.predict(sensor_data)
         print(f"  [Perception] Status: {inference['decision']} (Confidence: {inference['confidence']*100:.1f}%)")
