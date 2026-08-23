@@ -35,6 +35,19 @@ class Automata(ABC):
     def __init__(self, model: Model, name: str = "") -> None:
         self.__name = name
         self.__model = model
+        self.__functionalities = {}
+
+    def add_functionality(self, function_name: str, function):
+        """Ajoute une fonctionnalité (un 'organe') à l'automate."""
+        self.__functionalities[function_name] = function
+        print(f"[Automata] Functionality '{function_name}' added to {self.__name}")
+
+    def execute_functionality(self, function_name: str, *args):
+        """Exécute une fonctionnalité enregistrée."""
+        if function_name in self.__functionalities:
+            return self.__functionalities[function_name](*args)
+        else:
+            raise ValueError(f"Functionality '{function_name}' not found.")
 
     def train(self):
         # Implement your own abstraction here
