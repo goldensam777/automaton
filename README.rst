@@ -1,5 +1,5 @@
 ======================================================================
-Automaton Universale
+automaton
 ======================================================================
 *A Programmable Automata Abstraction Framework for Embedded AI Systems*
 
