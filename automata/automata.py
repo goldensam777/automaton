@@ -1,10 +1,7 @@
 from abc import ABC, abstractmethod
 from functools import wraps
 
-try:
-    from .model import Model
-except ImportError:
-    from model import Model
+from .model import Model
 
 
 def learn(function):
@@ -52,6 +49,7 @@ class Automata(ABC):
         else:
             raise ValueError(f"Functionality '{function_name}' not found.")
 
+    @abstractmethod
     def train(self):
         # Implement your own abstraction here
         pass
@@ -63,10 +61,9 @@ class Automata(ABC):
     @model.setter
     def model(self, val):
         if isinstance(val, Model):
-            # Correction : modification directe de l'attribut privé
-            # pour éviter la récursion infinie
             self.__model = val
 
+    @abstractmethod
     def config(self):
         # Implement your own abstraction here
         pass
